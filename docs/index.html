@@ -3,130 +3,211 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Palmo Companion</title>
-<meta name="description" content="Palmo installe Dekko sur ton bureau : un petit compagnon qui grandit avec tes vrais succès Steam. Gratuit, sans compte, tes données restent sur ton PC.">
-<meta property="og:title" content="Palmo Companion : ton Steam devient vivant">
-<meta property="og:description" content="Dekko grandit avec tes vrais succès Steam. Gratuit, sans compte, tes données restent sur ton PC.">
+<title>Palmo · Ton Steam devient vivant</title>
+<meta name="description" content="Palmo installe Dekko sur ton bureau : un compagnon qui évolue avec tes vrais succès Steam. Gratuit, pour Windows, sans compte, tes données restent sur ton PC.">
+<meta property="og:title" content="Palmo : ton Steam devient vivant">
+<meta property="og:description" content="Tes jeux. Tes succès. Ton histoire. Dekko évolue avec tout ça. Gratuit pour Windows.">
 <meta property="og:image" content="assets/magasin.webp">
 <meta name="theme-color" content="#0d0b14">
 <link rel="icon" href="assets/icon.png">
-  <script type="module" crossorigin src="./assets/index-CVpHeUPg.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DUcokJkC.css">
+  <script type="module" crossorigin src="./assets/index-6KqPTGu1.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CxIxNLlg.css">
 </head>
 <body>
 <a class="skip" href="#telecharger">Passer directement au téléchargement</a>
 
-<header class="top">
-  <a class="brand" href="#"><img src="assets/icon.png" alt="" width="28" height="28"><span>Palmo</span></a>
-  <ol class="chapters" id="chapters" aria-label="Scènes">
-    <li><a href="#s1">Ton bureau</a></li><li><a href="#s2">Ton Steam</a></li><li><a href="#s3">Il grandit</a></li><li><a href="#s4">Il se transforme</a></li><li><a href="#s5">Ton histoire</a></li><li><a href="#s6">Joue</a></li><li><a href="#s7">Confiance</a></li><li><a href="#s8">Il t’attend</a></li>
-  </ol>
-  <a class="btn primary sm" href="#telecharger">Télécharger</a>
+<header class="nav" id="nav">
+  <a class="brand" href="#top"><img src="assets/icon.png" alt="" width="30" height="30"><span>Palmo</span></a>
+  <nav class="links" aria-label="Sections">
+    <a href="#boucle">Le principe</a><a href="#appli">L’appli</a><a href="#tondekko">Ton Dekko</a><a href="#confiance">Confiance</a>
+  </nav>
+  <a class="nav-cta" href="https://github.com/maximelebatardsartre/palmo/releases/latest" data-download>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>
+    <span>Télécharger</span><small>Gratuit</small>
+  </a>
 </header>
 
-<!-- The film: one world, one Dekko, the scroll moves the story. -->
-<div class="film" id="film">
-  <div class="world" id="world" aria-hidden="true">
-    <div class="cam" id="cam">
-      <div class="wall" id="wall"><i class="sun"></i><i class="glow"></i></div>
-      <div class="monitor" id="monitor"><div class="game"><img class="hero" src="https://cdn.cloudflare.steamstatic.com/steam/apps/367520/library_hero.jpg" alt="" loading="lazy"><img class="logo" src="https://cdn.cloudflare.steamstatic.com/steam/apps/367520/logo.png" alt="Hollow Knight" loading="lazy"></div><span>Écran 1 · Hollow Knight</span></div>
-
-      <div class="ach" id="ach">
-        <span class="ach-ico"><img src="https://shared.fastly.steamstatic.com/community_assets/images/apps/367520/c2a017099150e32a6d014c318d921a5a2deec181.jpg" alt="" loading="lazy"></span>
-        <span class="ach-text"><small>Succès débloqué</small><b>Âme d’acier</b><span>Hollow Knight</span></span>
+<main>
+  <!-- 1. The hero: the real app, Dekko on it, an achievement that makes him grow. -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="wordmark">PALMO</p>
+      <h1>Ton Steam<br>devient <em>vivant.</em></h1>
+      <p class="lead">Tes jeux. Tes succès. Ton histoire.<br><b>Dekko évolue avec tout ça.</b></p>
+      <div class="cta">
+        <a class="dl" href="https://github.com/maximelebatardsartre/palmo/releases/latest" data-download>
+          <span class="dl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg></span>
+          <span class="dl-txt"><b>Télécharger Palmo</b><small>Gratuit</small></span>
+        </a>
+        <p class="facts"><span>Windows</span><span>Sans compte</span><span>Données locales</span><span>Gratuit</span></p>
+        <p class="version" data-version>Version actuelle · installation en une minute</p>
       </div>
-      <i class="orb" id="orb"></i>
-      <div class="burst" id="burst"></div>
-      <div class="card" id="card"><div class="card-back"></div><div class="card-front"><span class="card-pic" id="card-pic"></span><small>Légendaire</small><b>Couronne pixel</b></div></div>
-      <div class="stamps" id="stamps"><span>Classe <b>Explorateur</b></span><span>Trait <b>Noctambule</b></span><span>Titre <b>Chasseur de raretés</b></span></div>
+    </div>
 
-      <div class="win vault" id="vault">
-        <div class="win-bar"><span class="dots"><i></i><i></i><i></i></span><b>Coffre de Windows · clé Steam de lecture</b></div>
-        <ul class="perm" id="perm">
-          <li class="yes">Lire tes succès et ton temps de jeu</li>
-          <li class="no">Se connecter à ton compte</li>
-          <li class="no">Acheter quoi que ce soit</li>
-          <li class="no">Modifier ton profil ou tes amis</li>
-        </ul>
-        <div class="local" id="local">
-          <div class="pc"><span>Ton PC</span><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="cloud"><span>Serveur Palmo</span><b>il n’existe pas</b></div>
+    <div class="hero-stage" id="hero-stage">
+      <div class="win-wrap">
+        <div class="screen" id="hero-screen"><span class="loading">Palmo s’ouvre…</span></div>
+        <div class="toast" id="toast" aria-hidden="true">
+          <img class="t-ico" id="t-ico" alt="">
+          <span class="t-txt"><small>Succès débloqué</small><b id="t-name"></b><span id="t-game"></span></span>
+        </div>
+              </div>
+      <p class="hint pro">Dekko vit dans la page : attrape-le, caresse-le, clic droit pour sa vraie roue.</p>
+      <p class="hint touch">Dekko vit dans la page : attrape-le, ou garde le doigt sur lui pour sa vraie roue.</p>
+    </div>
+  </section>
+
+  <!-- 2. What Palmo makes of a Steam profile, line by line. -->
+  <section class="conv-sec" id="principe">
+    <header class="head">
+      <h2>Steam garde tes chiffres.<br><em>Palmo en fait un personnage.</em></h2>
+    </header>
+    <div class="conv" id="conv">
+      <div class="conv-in">
+        <p class="conv-h">Ton profil Steam</p>
+        <ol id="conv-in"></ol>
+      </div>
+      <div class="conv-out">
+        <p class="conv-h">Ton Dekko</p>
+        <div class="conv-dk" id="conv-dk"></div>
+        <p class="conv-title" id="conv-title">…</p>
+        <ul class="conv-traits" id="conv-traits"></ul>
+      </div>
+    </div>
+    <p class="conv-again"><button type="button" class="link" id="conv-again">Revoir la transformation</button></p>
+  </section>
+
+  <!-- 3. The loop, played for real: a game session, Dekko hides, comes back, grows. -->
+  <section class="play-sec" id="boucle">
+    <header class="head">
+      <p class="kicker">Le principe</p>
+      <h2>Tu joues. <em>Il grandit.</em></h2>
+      <p class="sub">Essaie : lance une partie.</p>
+    </header>
+    <div class="play">
+      <div class="game" id="game">
+        <img class="g-hero" id="g-hero" alt="">
+        <img class="g-logo" id="g-logo" alt="">
+        <div class="g-veil"></div>
+        <button type="button" class="g-play" id="g-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg><span id="g-play-label">Jouer</span></button>
+        <div class="g-hud" id="g-hud" hidden><span class="g-live">En jeu</span><b id="g-time">0:00</b><small>Dekko se cache : zéro impact sur ta partie.</small></div>
+        <div class="g-toasts" id="g-toasts" aria-live="polite"></div>
+        <div class="g-pick" id="g-pick" role="group" aria-label="Choisir un jeu"></div>
+      </div>
+      <ol class="ledger" id="ledger">
+        <li data-k="ach"><small>Succès débloqués</small><b id="l-ach">0</b></li>
+        <li data-k="xp"><small>XP de Dekko</small><b id="l-xp">+0</b><span class="lbar"><i id="l-xpbar"></i></span></li>
+        <li data-k="lvl"><small>Niveau</small><b id="l-lvl">12</b></li>
+        <li data-k="palmes"><small>Palmes</small><b id="l-palmes">0</b></li>
+        <li data-k="pack"><small>Pack gagné</small><div class="pack" id="pack"><button type="button" class="pack-card" id="pack-card" disabled><span class="pack-q">?</span><span class="pack-item" id="pack-item"></span></button><span class="pack-say" id="pack-say">Joue pour en gagner un.</span></div></li>
+        <li data-k="wear"><small>Dekko porte</small><b id="l-wear">rien de neuf</b></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4. The real app, its five big experiences. -->
+  <section class="show-sec" id="appli">
+    <div class="show" id="show">
+      <div class="show-side">
+        <header class="head side">
+          <p class="kicker">Voici Palmo</p>
+          <h2>Tout ton historique Steam devient une <em>expérience.</em></h2>
+        </header>
+        <ol class="show-list" id="show-list" role="tablist" aria-label="Les grandes expériences de Palmo"></ol>
+      </div>
+      <div class="show-stage">
+        <div class="win-wrap">
+          <div class="screen" id="show-screen"><div class="lens" id="lens"></div></div>
+        </div>
+        <p class="show-tip">Ce sont les vrais écrans de Palmo. La barre de gauche marche.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. The signature: the visitor's own Dekko is born from three games. -->
+  <section class="gen-sec" id="tondekko">
+    <div class="gen">
+      <div class="gen-pick">
+        <p class="kicker">Ta mini-Genèse</p>
+        <h2>Et toi, quel Dekko <em>serais‑tu&nbsp;?</em></h2>
+        <p class="gen-ask" id="gen-ask">Choisis 3 jeux que tu aimes.</p>
+        <ul class="covers" id="covers"></ul>
+        <button type="button" class="go" id="gen-go" disabled><span>Faire naître mon Dekko</span><b id="gen-count">0/3</b></button>
+      </div>
+      <div class="gen-egg">
+        <div class="egg" id="egg">
+          <div class="egg-light"></div>
+          <div class="egg-dk" id="egg-dk"></div>
+          <p class="egg-year" id="egg-year" aria-live="polite"></p>
+        </div>
+        <div class="gen-out" id="gen-out" hidden>
+          <p class="eyebrow" id="gen-class"></p>
+          <p class="gen-title" id="gen-title"></p>
+          <p class="gen-note">Avec trois jeux. Avec tout ton Steam, Palmo va beaucoup plus loin.</p>
+          <div class="gen-acts"><button type="button" class="ghost-btn" id="card-btn">Faire sa carte</button><button type="button" class="link" id="gen-again">Recommencer</button></div>
+        </div>
+        <div class="gen-cta">
+          <p id="gen-cta-say">Prêt à rencontrer ton Dekko&nbsp;?</p>
+          <a class="dl" href="https://github.com/maximelebatardsartre/palmo/releases/latest" data-download>
+            <span class="dl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg></span>
+            <span class="dl-txt"><b>Télécharger Palmo</b><small>Gratuit · Windows · Sans compte</small></span>
+          </a>
         </div>
       </div>
-      <div class="win smart" id="smart">
-        <b>Windows a protégé votre ordinateur</b>
-        <span>Microsoft Defender SmartScreen a empêché le démarrage d’une application non reconnue.</span>
-        <span class="ss-link">Informations complémentaires</span>
-        <span class="ss-btn">Exécuter quand même</span>
-      </div>
-
-      <div class="snack" id="snack" hidden></div>
-      <div class="dekko" id="dekko"><div class="flip" id="flip"></div></div>
-      <div class="plate" id="plate">Chasseur de raretés</div>
-      <div class="hud" id="hud"><span>Niv. <b id="hud-level">12</b></span><span class="bar"><i id="hud-xp"></i></span></div>
-
-      <div class="taskbar"><span class="start"></span><span class="tb-palmo"></span><span></span><span></span><span class="clock" id="clock">21:47</span></div>
-    </div>
-    <div class="desk" id="desk"></div>
-  </div>
-
-  <!-- The captions, one per scene: the story told in words (and what the
-       screen reader follows). Each one sets how long its scene lasts. -->
-  <section class="scene" id="s1" data-len="1" data-auto="40">
-    <div class="cap">
-      <p class="kick">Palmo Companion · gratuit pour Windows</p>
-      <h1>Ton Steam<br><em>devient vivant.</em></h1>
-      <p class="say" id="wake-say">Chut… il dort. <button type="button" class="link" id="wake">Réveille-le.</button></p>
-      <p class="say after">Voici Dekko. Il vit sur ton bureau et te suit partout. <span class="pro">Clic droit sur lui : c’est sa vraie roue.</span><span class="touch">Garde le doigt sur lui : c’est sa vraie roue.</span></p>
-      <div class="cap-cta"><a class="btn primary" href="#telecharger">Télécharger</a><a class="btn ghost" href="#s2">Voir la suite</a></div>
     </div>
   </section>
-  <section class="scene" id="s2" data-len="1" data-auto="9"><div class="cap"><p class="kick">Scène 2 · Ton Steam</p><h2>Il lit ta vie de joueur.</h2><p class="t1">Voici Palmo, le vrai : ta bibliothèque Steam avec tes heures, tes succès, ton backlog, tes jaquettes. Dekko, lui, s’installe sur la fenêtre.</p><p class="t2">Tu lances un jeu ? Il te souhaite bonne partie… et disparaît. Rien ne tourne pendant que tu joues.</p></div></section>
-  <section class="scene" id="s3" data-len="1" data-auto="8"><div class="cap"><p class="kick">Scène 3 · Il grandit</p><h2>Chaque succès le fait grandir.</h2><p>Plus il est rare, plus il compte. À la fin de ta partie, Dekko te fait le débrief.</p></div></section>
-  <section class="scene" id="s4" data-len="1" data-auto="8"><div class="cap"><p class="kick">Scène 4 · Il se transforme</p><h2>Ta vie de joueur devient un trésor.</h2><p>Au premier lancement, tous tes exploits passés deviennent des packs. Coloris, auras, fonds, bannières, stickers, émotes, et plus de 250 objets pour l’habiller.</p></div></section>
-  <section class="scene" id="s5" data-len="1.8" data-auto="0"><div class="cap"><p class="kick">Scène 5 · La Genèse</p><h2>Il connaît toute ton histoire.</h2><p class="g1">Au premier lancement, Maître Gélatin relit chaque année de ta vie de joueur. Voici le vrai écran.</p><p class="g2"><b>Voilà l’histoire que Palmo a découverte.</b> Imagine maintenant la tienne.</p></div></section>
-  <section class="scene" id="s6" data-len="1" data-auto="1.5"><div class="cap"><p class="kick">Scène 6 · À toi</p><h2>Fais connaissance.</h2><p class="hint" id="hint" aria-live="polite"></p><div class="wardrobe" id="wardrobe" role="group" aria-label="Garde-robe de Dekko"></div><button type="button" class="btn ghost sm card-btn" id="card-btn">Faire sa carte</button></div></section>
-  <section class="scene" id="s7" data-len="1" data-auto="22"><div class="cap"><p class="kick">Scène 7 · Et tout le reste</p><h2 id="eco-title">Ce n’est que le début.</h2><p id="eco-say">Clique sur la barre de gauche de Palmo : tout marche.</p></div></section>
-  <section class="scene final" id="s8" data-len="1.6" data-auto="9">
-    <div class="cap" id="telecharger">
-      <p class="kick">Scène 8 · Il t’attend</p>
-      <div class="t1"><h2>Il garde tes secrets.</h2><p>Pas de compte, pas de serveur Palmo, pas de publicité. Ta clé Steam ne sert qu’à lire, et elle reste dans le coffre de Windows.</p></div>
-      <div class="t2"><h2>Windows ne le connaît pas encore.</h2><p>La première fois, il présente Palmo comme une appli inconnue. Clique sur <b>Informations complémentaires</b>, puis <b>Exécuter quand même</b>.</p></div>
-      <div class="t3"><h2>À quoi ressemblera <em>ton</em> Dekko ?</h2>
-        <a class="btn primary big" id="get" href="https://github.com/maximelebatardsartre/palmo/releases/latest" data-download>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>
-          <span id="get-label">Télécharger Palmo</span>
-        </a>
-        <p class="meta" data-version>Gratuit · Windows 10 et 11 · se met à jour tout seul</p>
-        <p class="meta mobile-only">Sur téléphone ? Garde ce lien pour ce soir, sur ton PC.</p>
+
+  <!-- 6. For the curious: everything else, still the real app. -->
+  <section class="more-sec" id="plus">
+    <header class="head row">
+      <h2>Et ce n’est <em>pas tout.</em></h2>
+      <p>Choisis, regarde : c’est l’appli.</p>
+    </header>
+    <div class="more" id="more">
+      <div class="more-stage">
+        <div class="win-wrap">
+          <div class="screen" id="more-screen"></div>
+        </div>
       </div>
+      <ul class="more-list" id="more-list"></ul>
     </div>
   </section>
-</div>
 
-<!-- After the film: the plain answers, for those who want them. -->
-<section class="after-film">
-  <div class="wrap">
-    <h2>Encore une question ?</h2>
-    <details><summary>C’est vraiment gratuit ?</summary><p>Oui. Pas d’abonnement, pas de publicité, rien à acheter. Les Palmes se gagnent uniquement en jouant.</p></details>
-    <details><summary>Ça ralentit mes jeux ?</summary><p>Non. Dès qu’un jeu se lance, Dekko se cache et Palmo met en pause son affichage et ses accès réseau.</p></details>
-    <details><summary>Ma clé Steam, c’est mon mot de passe ?</summary><p>Non. C’est une clé de lecture gratuite, que Steam te donne en un clic. Elle permet de lire tes succès et ton temps de jeu, rien d’autre. Palmo la range dans le coffre de Windows.</p></details>
-    <details><summary>Comment vérifier le fichier ?</summary><p>Chaque version est construite publiquement par GitHub, et son <a href="https://github.com/maximelebatardsartre/palmo/releases/latest">empreinte SHA-256</a> est publiée à côté. Les mises à jour sont signées : Palmo refuse les autres.</p></details>
-    <details><summary>Palmo, Dekko, c’est quoi la différence ?</summary><p>Palmo est l’application. Dekko est ton compagnon, le petit cube qui vit sur ton bureau.</p></details>
-    <div class="news"><span class="badge">Dernière version · <span data-tag>0.1.5</span></span> Le Magasin suit les saisons, 80 nouveaux objets, Dekko se laisse caresser et nourrir. <a href="https://github.com/maximelebatardsartre/palmo/releases">Toutes les versions</a></div>
-  </div>
-</section>
+  <!-- 7. Trust: four answers, nothing more. -->
+  <section class="trust-sec" id="confiance">
+    <ul class="trust">
+      <li><span class="q">Tes données ?</span><b>Restent sur ton PC.</b><span class="a">Pas de compte, pas de serveur Palmo, aucune télémétrie.</span></li>
+      <li><span class="q">Ton Steam ?</span><b>Lu, jamais touché.</b><span class="a">Une clé de lecture Steam, rangée dans le coffre de Windows. Jamais ton mot de passe.</span></li>
+      <li><span class="q">Pendant tes jeux ?</span><b>Palmo se met en pause.</b><span class="a">Dekko se cache, l’affichage et le réseau s’arrêtent.</span></li>
+      <li><span class="q">Le prix ?</span><b>Gratuit.</b><span class="a">Pas d’abonnement, pas de publicité, rien à acheter.</span></li>
+    </ul>
+    <p class="trust-more"><a href="https://github.com/maximelebatardsartre/palmo/blob/main/CONFIDENTIALITE.md">En savoir plus sur la confidentialité</a></p>
+  </section>
+
+  <!-- 8. The end: a Dekko, a sentence, a button. -->
+  <section class="end-sec" id="telecharger">
+    <div class="end-dk" id="end-dk"></div>
+    <h2 id="end-title">Ton Dekko <em>t’attend.</em></h2>
+    <a class="dl big" id="get" href="https://github.com/maximelebatardsartre/palmo/releases/latest" data-download>
+      <span class="dl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg></span>
+      <span class="dl-txt"><b>Télécharger Palmo</b><small>Gratuit</small></span>
+    </a>
+    <p class="facts"><span>Gratuit</span><span>Windows 10 et 11</span><span>Sans compte</span></p>
+    <p class="mobile-only">Sur téléphone ? Garde ce lien pour ce soir, sur ton PC.</p>
+  </section>
+</main>
 
 <footer>
-  <div class="wrap">
-    <span>© 2026 Az2uP · Palmo Companion et Dekko, tous droits réservés. Palmo n’est pas affilié à Valve ni à Steam. Les noms, logos et visuels des jeux appartiennent à leurs éditeurs ; ils sont affichés depuis Steam, comme dans l’application, pour un profil d’exemple.</span>
-    <nav aria-label="Liens"><a href="https://github.com/maximelebatardsartre/palmo/releases">Versions</a><a href="https://github.com/maximelebatardsartre/palmo/blob/main/CONFIDENTIALITE.md">Confidentialité</a><a href="https://github.com/maximelebatardsartre/palmo/blob/main/LICENCE-UTILISATION.md">Licence</a></nav>
-  </div>
+  <span>© 2026 Az2uP · Palmo Companion et Dekko, tous droits réservés. Palmo n’est pas affilié à Valve ni à Steam. Les noms, logos et visuels des jeux appartiennent à leurs éditeurs ; ils sont affichés depuis Steam, comme dans l’application, pour un profil d’exemple.</span>
+  <nav aria-label="Liens"><a href="https://github.com/maximelebatardsartre/palmo/releases">Versions</a><a href="https://github.com/maximelebatardsartre/palmo/blob/main/CONFIDENTIALITE.md">Confidentialité</a><a href="https://github.com/maximelebatardsartre/palmo/blob/main/LICENCE-UTILISATION.md">Licence</a></nav>
 </footer>
 
-<dialog class="card-modal" id="card-modal" aria-labelledby="card-title"><h2 id="card-title">Ta carte Palmo</h2><div class="card-out" id="card-out"></div><p class="small">Exactement la carte que Palmo génère, avec ton Dekko du moment. Dans l’appli, elle porte tes vrais chiffres.</p><div class="card-acts"><button type="button" class="btn primary sm" id="card-save">Enregistrer l’image</button><form method="dialog"><button class="btn ghost sm">Fermer</button></form></div></dialog>
+<div class="desk" id="desk"></div>
+<div class="snack" id="snack" hidden></div>
 
-<div class="bye" id="bye" role="status" hidden><div class="bye-dekko" id="bye-dekko"></div><b>À tout de suite sur ton bureau.</b><span>Ouvre le fichier téléchargé. Si Windows te prévient : <em>Informations complémentaires</em>, puis <em>Exécuter quand même</em>.</span><button type="button" class="btn ghost sm" id="bye-close">D’accord</button></div>
+<dialog class="modal" id="card-modal" aria-labelledby="card-title"><h2 id="card-title">Ta carte Palmo</h2><div class="card-out" id="card-out"></div><p class="small">La vraie carte que Palmo génère, avec ton Dekko. Dans l’appli, elle porte tes vrais chiffres.</p><div class="modal-acts"><button type="button" class="ghost-btn" id="card-save">Enregistrer l’image</button><form method="dialog"><button class="link">Fermer</button></form></div></dialog>
+
+<div class="bye" id="bye" role="status" hidden><div class="bye-dk" id="bye-dk"></div><b>À tout de suite sur ton bureau.</b><span>Ouvre le fichier téléchargé. Windows ne connaît pas encore Palmo : clique sur <em>Informations complémentaires</em>, puis <em>Exécuter quand même</em>.</span><button type="button" class="ghost-btn" id="bye-close">D’accord</button></div>
 
 </body>
 </html>
