@@ -1,12 +1,14 @@
 # Palmo Companion
 
+**Site et téléchargement : https://maximelebatardsartre.github.io/palmo/**
+
 Palmo Companion (Palmo pour les intimes) est un compagnon de bureau gratuit pour les joueurs Steam sous Windows.
 
-Chaque joueur a son **Dekko**, un petit slime cubique qui vit sur ton écran. Il se balade sur la barre des tâches, s'installe sur tes fenêtres, dort la nuit et évolue avec tes vrais exploits Steam : succès, raretés, jeux terminés, genres joués. Il en tire une classe, des traits, des titres et une garde-robe de plus de 170 objets.
+Chaque joueur a son **Dekko**, un petit slime cubique qui vit sur ton écran. Il se balade sur la barre des tâches, s'installe sur tes fenêtres, dort la nuit et évolue avec tes vrais exploits Steam : succès, raretés, jeux terminés, genres joués. Il en tire une classe, des traits, des titres et une garde-robe de plus de 250 objets.
 
 ## Ce que fait Palmo
 
-- **Dekko sur ton bureau** : glisse-le, taquine-le d'un clic. Un clic droit ouvre sa roue (panneau, lanceur, tes raccourcis, taille, masquer).
+- **Dekko sur ton bureau** : glisse-le, taquine-le d'un clic, caresse-le en passant la souris sur lui. Un clic droit ouvre sa roue (panneau, lanceur, tes raccourcis, un en-cas, ses émotes, masquer). Il a un petit mot quand tu lances un jeu.
 - **Zéro impact en jeu** : dès qu'un jeu ou une application plein écran démarre, Dekko disparaît vraiment. Plus de rendu, plus de réseau.
 - **Débrief de fin de session** : tes succès de la partie, les plus rares fêtés un par un, l'XP gagnée, la montée de niveau.
 - **Genèse** : au premier lancement, Dekko relit toute ta vie de joueur et la rejoue en accéléré.
@@ -15,7 +17,8 @@ Chaque joueur a son **Dekko**, un petit slime cubique qui vit sur ton écran. Il
 - **Lanceur rapide** : `Alt + Maj + Espace`, quelques lettres, Entrée, le jeu démarre.
 - **Cartes à partager** : ton profil, ta série de connexions, tes récaps du mois et de l'année, tes 100 %, en PNG.
 - **Personnalisation** : garde-robe, coloris, auras, émotes, bannières et fonds de carte, gagnés en jouant ou trouvés dans des packs ouverts avec des Palmes, la monnaie du jeu (rien ne s'achète avec de l'argent réel).
-- **Défis et passe de saison** : trois défis du jour et trois de la semaine tirés de ta vraie vie de joueur, une boutique du jour, et un passe de saison gratuit de 40 paliers avec un coloris exclusif chaque trimestre.
+- **Le Magasin** : les packs, la boutique du jour, les séries, les promos Steam du moment et ta collection. Il suit l'année : Halloween, Noël, Nouvel An, Saint-Valentin, Pâques et les saisons ont leurs séries limitées.
+- **Défis et passe de saison** : trois défis du jour et trois de la semaine tirés de ta vraie vie de joueur, une mission du soir, et un passe de saison gratuit de 40 paliers avec un coloris exclusif chaque trimestre.
 - **Série de connexions** : chaque jour avec Palmo prolonge ta flamme et rapporte des Palmes.
 - **Son et musique** : une musique d'ambiance composée en direct et des petits sons, tout se coupe en un clic.
 - **Deuxième écran** : pendant un jeu, Dekko peut veiller sur ton autre écran avec les performances du PC.

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palmo Companion</title>
+<meta name="description" content="Dekko, un petit cube qui vit sur ton bureau et grandit avec tes vrais exploits Steam. Gratuit, sans compte, tout reste sur ton PC.">
+<meta property="og:title" content="Palmo Companion">
+<meta property="og:description" content="Dekko grandit avec tes vrais exploits Steam. Gratuit, sans compte, tout reste sur ton PC.">
+<meta property="og:image" content="assets/dekko-poster.webp">
+<link rel="icon" href="assets/icon.png">
+<style>
+  :root {
+    --bg: #0b0b12; --bg-1: #14141d; --bg-2: #1c1c28; --line: rgb(255 255 255 / 0.08);
+    --fg: #f5f2ea; --fg-2: #c9c5d6; --muted: #8d89a0;
+    --accent: #ffcf5a; --accent-ink: #1f1405; --violet: #8f7bff; --ok: #6fe08a; --pink: #ff7ac0;
+    --display: "Bahnschrift", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+    --text: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; }
+  .wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+  header.top { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); background: rgb(11 11 18 / 0.72); border-bottom: 1px solid var(--line); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; font: 800 18px var(--display); text-decoration: none; }
+  .brand img { width: 30px; height: 30px; border-radius: 8px; }
+  .top nav { display: flex; gap: 22px; font-weight: 600; color: var(--fg-2); }
+  .top nav a { text-decoration: none; }
+  .top nav a:hover { color: var(--fg); }
+
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 14px; border: 0; font: 800 16px var(--display); text-decoration: none; cursor: pointer; transition: transform 160ms, box-shadow 160ms; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.big { padding: 18px 30px; font-size: 20px; border-radius: 18px; }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 10px 40px rgb(255 207 90 / 0.35), inset 0 -3px 0 rgb(0 0 0 / 0.18); }
+  .btn.ghost { background: rgb(255 255 255 / 0.06); color: var(--fg); box-shadow: inset 0 0 0 1px var(--line); }
+  .btn svg { width: 22px; height: 22px; }
+
+  .hero { position: relative; padding: 72px 0 40px; }
+  .hero::before { content: ""; position: absolute; inset: -200px 0 auto; height: 760px; z-index: -1; background: radial-gradient(45% 50% at 72% 40%, rgb(143 123 255 / 0.28), transparent 70%), radial-gradient(35% 40% at 15% 20%, rgb(255 207 90 / 0.14), transparent 70%); }
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+  .eyebrow { font: 800 12px var(--display); letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+  h1 { margin: 12px 0 16px; font: 800 clamp(38px, 6vw, 64px)/1.02 var(--display); letter-spacing: -0.02em; }
+  h1 em { font-style: normal; background: linear-gradient(90deg, var(--accent), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { margin: 0 0 28px; font-size: 19px; color: var(--fg-2); max-width: 52ch; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .meta { margin-top: 14px; font-size: 14px; color: var(--muted); }
+  .meta b { color: var(--fg-2); }
+  .stage { position: relative; aspect-ratio: 1; border-radius: 36px; overflow: hidden; background: #0b0b12; box-shadow: 0 30px 90px rgb(0 0 0 / 0.55), inset 0 0 0 1px var(--line); }
+  .stage video, .stage img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  section { padding: 64px 0; }
+  h2 { margin: 0 0 10px; font: 800 clamp(28px, 4vw, 40px)/1.1 var(--display); letter-spacing: -0.01em; }
+  .sub { margin: 0 0 32px; color: var(--fg-2); max-width: 62ch; font-size: 17px; }
+
+  .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .card { padding: 22px; border-radius: 22px; background: var(--bg-1); box-shadow: inset 0 0 0 1px var(--line); }
+  .card .ico { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px; margin-bottom: 14px; background: color-mix(in srgb, var(--c) 18%, transparent); color: var(--c); }
+  .card .ico svg { width: 24px; height: 24px; }
+  .card h3 { margin: 0 0 6px; font: 800 19px var(--display); }
+  .card p { margin: 0; color: var(--fg-2); font-size: 15px; }
+
+  .shots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+  figure { margin: 0; }
+  .shots figure { grid-column: span 3; }
+  .shots figure.wide { grid-column: span 6; }
+  .shots img { width: 100%; height: auto; display: block; border-radius: 18px; box-shadow: 0 20px 60px rgb(0 0 0 / 0.5), inset 0 0 0 1px var(--line); }
+  figcaption { margin-top: 10px; color: var(--muted); font-size: 14px; }
+
+  .steps { counter-reset: s; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .step { position: relative; padding: 22px 22px 22px 70px; border-radius: 22px; background: var(--bg-1); box-shadow: inset 0 0 0 1px var(--line); }
+  .step::before { counter-increment: s; content: counter(s); position: absolute; left: 20px; top: 20px; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 12px; background: var(--accent); color: var(--accent-ink); font: 800 18px var(--display); }
+  .step h3 { margin: 0 0 4px; font: 800 18px var(--display); }
+  .step p { margin: 0; color: var(--fg-2); font-size: 15px; }
+
+  .privacy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; padding: 0; list-style: none; }
+  .privacy li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; color: var(--fg-2); }
+  .privacy svg { width: 22px; height: 22px; color: var(--ok); margin-top: 2px; }
+
+  details { padding: 16px 20px; border-radius: 16px; background: var(--bg-1); box-shadow: inset 0 0 0 1px var(--line); margin-bottom: 10px; }
+  summary { cursor: pointer; font: 700 17px var(--display); }
+  details p { margin: 10px 0 0; color: var(--fg-2); }
+
+  .final { text-align: center; padding: 80px 0; }
+  .final .cta { justify-content: center; }
+  footer { padding: 30px 0 50px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; }
+  footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
+
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .stage { max-width: 440px; width: 100%; margin-inline: auto; }
+    .features, .steps { grid-template-columns: 1fr; }
+    .shots figure, .shots figure.wide { grid-column: span 6; }
+    .privacy { grid-template-columns: 1fr; }
+    .top nav { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/icon.png" alt="">Palmo Companion</a>
+    <nav><a href="#dekko">Dekko</a><a href="#apercu">Aperçu</a><a href="#vie-privee">Vie privée</a><a href="#questions">Questions</a></nav>
+    <a class="btn primary" href="https://github.com/maximelebatardsartre/palmo/releases/latest" data-download>Télécharger</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Gratuit · Windows · Steam</span>
+        <h1>Ton bureau a enfin <em>un compagnon de jeu</em>.</h1>
+        <p class="lead">Dekko est un petit cube qui vit sur ton bureau. Il grandit avec tes vrais exploits Steam, s’habille de ce que tu débloques et te raconte ta vie de joueur.</p>
+        <div class="cta">
+          <a class="btn primary big" href="https://github.com/maximelebatardsartre/palmo/releases/latest" data-download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>
+            Télécharger pour Windows
+          </a>
+          <a class="btn ghost" href="#apercu">Voir l’aperçu</a>
+        </div>
+        <p class="meta"><span data-version>Dernière version</span> · <b>sans compte, sans pub, sans abonnement</b> · se met à jour toute seule</p>
+      </div>
+      <div class="stage">
+        <video src="assets/dekko.webm" poster="assets/dekko-poster.webp" autoplay muted loop playsinline aria-label="Dekko change de tenue et danse"></video>
+      </div>
+    </div>
+  </section>
+
+  <section id="dekko">
+    <div class="wrap">
+      <h2>Un compagnon qui te ressemble</h2>
+      <p class="sub">Tout ce que fait Dekko vient de tes vraies parties. Pas de temps à tuer, pas de grind : ce sont tes succès qui comptent.</p>
+      <div class="features">
+        <article class="card" style="--c: var(--accent)">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div>
+          <h3>Il grandit avec tes succès</h3>
+          <p>Raretés, jeux finis à 100 %, genres joués : Dekko gagne des niveaux, une classe, des traits et des titres.</p>
+        </article>
+        <article class="card" style="--c: var(--pink)">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 5.6L20 9.3l-4.3 3.9 1.2 5.8L12 16l-4.9 3 1.2-5.8L4 9.3l5.6-.7z"/></svg></div>
+          <h3>Des centaines d’objets</h3>
+          <p>Chapeaux, costumes, ailes, auras, coloris, émotes : de quoi l’habiller pour toutes les saisons.</p>
+        </article>
+        <article class="card" style="--c: var(--violet)">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5L12 4l8.5 4.5L12 13z"/><path d="M3.5 8.5V16L12 20.5V13M20.5 8.5V16L12 20.5"/></svg></div>
+          <h3>Un Magasin qui suit l’année</h3>
+          <p>Halloween, Noël, Pâques, l’été… Des séries limitées et une boutique qui change chaque jour, tout en Palmes gagnées en jouant.</p>
+        </article>
+        <article class="card" style="--c: var(--ok)">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
+          <h3>Défis et passe de saison</h3>
+          <p>Des défis du jour, une mission du soir dans ton backlog et un passe de saison gratuit.</p>
+        </article>
+        <article class="card" style="--c: #7cc4ff">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 4v5"/></svg></div>
+          <h3>Ta vie de joueur racontée</h3>
+          <p>La Genèse retrace toute ton histoire Steam au premier lancement. Statistiques, jeux presque finis, cartes à partager.</p>
+        </article>
+        <article class="card" style="--c: #ff8a5c">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/><path d="M17.3 5H6.7a4 4 0 0 0-4 3.6L2 15a3 3 0 0 0 5.4 1.8L9 15h6l1.6 1.8A3 3 0 0 0 22 15l-.7-6.4A4 4 0 0 0 17.3 5z"/></svg></div>
+          <h3>Zéro impact en jeu</h3>
+          <p>Dès qu’un jeu se lance, Dekko se cache et Palmo ne fait plus rien. Tes performances restent intactes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="apercu">
+    <div class="wrap">
+      <h2>Un aperçu</h2>
+      <p class="sub">Captures faites avec le profil de démonstration de Palmo.</p>
+      <div class="shots">
+        <figure class="wide"><img src="assets/magasin.webp" alt="Le Magasin de Palmo, habillé pour l’automne" width="1440" height="900"><figcaption>Le Magasin change avec les saisons et les fêtes.</figcaption></figure>
+        <figure><img src="assets/packs.webp" alt="Ouverture de packs : coloris, stickers, fonds et objets" width="1440" height="900"><figcaption>Tes exploits passés se transforment en packs à ouvrir.</figcaption></figure>
+        <figure><img src="assets/passe.webp" alt="Le passe de saison gratuit et les défis du jour" width="1364" height="630"><figcaption>Un passe de saison gratuit et des défis chaque jour.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Prêt en trois minutes</h2>
+      <p class="sub">Une seule installation. Les mises à jour arrivent ensuite toutes seules.</p>
+      <div class="steps">
+        <div class="step"><h3>Télécharge et installe</h3><p>Un installateur Windows classique, sans compte à créer.</p></div>
+        <div class="step"><h3>Colle ta clé Steam</h3><p>Maître Gélatin te guide pas à pas pour récupérer ta clé personnelle, gratuite.</p></div>
+        <div class="step"><h3>Dekko naît</h3><p>La Genèse lit toute ta vie de joueur et ton Dekko prend vie sur ton bureau.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vie-privee">
+    <div class="wrap">
+      <h2>Tout reste chez toi</h2>
+      <p class="sub">Palmo n’a pas de serveur. Il parle seulement à Steam, avec ta propre clé.</p>
+      <ul class="privacy">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Aucun compte, aucune inscription.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Ta clé Steam est rangée dans le coffre de Windows.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Aucune télémétrie, aucune publicité.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Rien ne s’achète avec de l’argent réel.</li>
+      </ul>
+      <p class="sub" style="margin-top:18px"><a href="https://github.com/maximelebatardsartre/palmo/blob/main/CONFIDENTIALITE.md">Lire la politique de confidentialité</a></p>
+    </div>
+  </section>
+
+  <section id="questions">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <details><summary>C’est vraiment gratuit ?</summary><p>Oui. Pas d’abonnement, pas de publicité, rien à acheter. Les Palmes se gagnent uniquement en jouant.</p></details>
+      <details><summary>Windows affiche « Windows a protégé votre ordinateur »</summary><p>C’est normal pour une petite application récente. Clique sur « Informations complémentaires » puis « Exécuter quand même ». Les mises à jour, elles, sont signées et vérifiées par Palmo.</p></details>
+      <details><summary>Pourquoi une clé Steam ?</summary><p>C’est ce qui permet de lire tes succès et ton temps de jeu. Elle est gratuite, personnelle, et ne quitte jamais ton PC.</p></details>
+      <details><summary>Ça ralentit mes jeux ?</summary><p>Non. Pendant une partie, Dekko se cache et Palmo met en pause son affichage et ses accès réseau.</p></details>
+      <details><summary>Et sur Mac ou Linux ?</summary><p>Palmo n’existe que pour Windows pour l’instant.</p></details>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Dekko t’attend</h2>
+      <p class="sub" style="margin-inline:auto">Télécharge Palmo une fois, il se met à jour tout seul ensuite.</p>
+      <div class="cta"><a class="btn primary big" href="https://github.com/maximelebatardsartre/palmo/releases/latest" data-download>Télécharger pour Windows</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Az2uP · Palmo Companion et Dekko, tous droits réservés. Palmo n’est pas affilié à Valve ni à Steam.</span>
+    <nav>
+      <a href="https://github.com/maximelebatardsartre/palmo/releases">Versions</a>
+      <a href="https://github.com/maximelebatardsartre/palmo/blob/main/CONFIDENTIALITE.md">Confidentialité</a>
+      <a href="https://github.com/maximelebatardsartre/palmo/blob/main/LICENCE-UTILISATION.md">Licence</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // The download buttons point straight to the newest installer when GitHub answers.
+  fetch('https://api.github.com/repos/maximelebatardsartre/palmo/releases/latest')
+    .then((r) => (r.ok ? r.json() : null))
+    .then((rel) => {
+      const exe = rel && rel.assets && rel.assets.find((a) => /-setup\.exe$/i.test(a.name));
+      if (!exe) return;
+      for (const a of document.querySelectorAll('[data-download]')) a.href = exe.browser_download_url;
+      const v = document.querySelector('[data-version]');
+      if (v) v.textContent = `Version ${String(rel.tag_name).replace(/^v/, '')} · ${Math.round(exe.size / 1e6)} Mo`;
+    })
+    .catch(() => {});
+  // No moving video for those who asked their system for less motion.
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const v = document.querySelector('.stage video');
+    if (v) { v.removeAttribute('autoplay'); v.pause(); }
+  }
+</script>
+</body>
+</html>
