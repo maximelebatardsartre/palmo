@@ -24,6 +24,7 @@ Avec **ta propre clé Web API Steam**, Palmo interroge directement les serveurs 
 - tes succès, leurs noms et leur rareté mondiale ;
 - les fiches boutique des jeux (genres, prix actuel, image) ;
 - les actualités des jeux que tu n'as pas lancés depuis longtemps.
+- seulement si tu ouvres le classement « Amis Steam » de l'onglet Potes : ta liste d'amis Steam et, pour ceux dont le profil est public, leur pseudo, leur avatar, leur niveau Steam et leurs jeux des deux dernières semaines. Rien n'est lu pendant que tu joues, au plus une fois par jour, et ces informations restent sur ton PC.
 
 Au sujet de la clé :
 
