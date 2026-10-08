@@ -236,6 +236,21 @@ Toutes les modifications notables de Palmo sont consignées ici. Le format suit 
 
 ## [Non publié]
 
+## [0.1.8] - 2026-10-08
+
+### Ajouté
+
+- Sauvegarde : ton Dekko, sa garde-robe, tes Palmes, tes codes et tes réglages tiennent dans un fichier \`.palmo\`, écrit tout seul une fois par jour dans Documents\\Palmo. Après une réinstallation ou sur un autre PC, Palmo le retrouve et te propose de reprendre ton Dekko. La sauvegarde est liée à ton compte Steam, jamais à la clé ni au pseudo, et la clé n'y est jamais. Dans Réglages > Sauvegarde, tu peux aussi l'exporter où tu veux et la reprendre.
+- Le code cadeau a son bouton dans la barre de gauche, juste au-dessus des réglages.
+- Quand une mise à jour est prête, un bouton dans la barre de gauche l'installe en un clic.
+- Les pages Steam (magasin, liste de souhaits, promos, communauté, succès) s'ouvrent dans l'application Steam. Le navigateur reste au choix dans Réglages > Application.
+
+### Corrigé
+
+- Dekko se croyait en jeu dès qu'on fermait la fenêtre de Palmo : Windows signale alors parfois le bureau comme une application en plein écran. Seule une vraie fenêtre qui couvre tout l'écran compte maintenant, et pendant au moins deux secondes.
+- Les serveurs de test, playtests, bêtas, serveurs dédiés, SDK et démos ne sont plus proposés dans le backlog ni par la roulette.
+- La roulette du backlog ne se lançait pas quand aucun jeu ne correspondait aux filtres (par exemple « Installés »). Elle le dit maintenant et propose de tirer parmi tous tes jeux installés.
+
 ## [0.1.7] - 2026-10-08
 
 ### Ajouté
