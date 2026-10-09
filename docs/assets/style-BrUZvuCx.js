@@ -236,6 +236,16 @@ Toutes les modifications notables de Palmo sont consignées ici. Le format suit 
 
 ## [Non publié]
 
+## [0.1.10] - 2026-10-09
+
+### Ajouté
+
+- Coffre d'Halloween : du 15 octobre au 2 novembre, chaque joueur reçoit un coffre offert, avec trois pièces d'Halloween tirées au hasard, dont au moins une rare. Il t'attend dans le Magasin, et l'Accueil te propose de l'ouvrir. Il s'ouvre quand tu veux, même après la fête.
+
+### Amélioré
+
+- L'image à partager de « Ton bilan » reprend le style du bilan animé : fond aurore, ton calendrier de l'année case par case, six chiffres clés et ton jeu de l'année.
+
 ## [0.1.9] - 2026-10-08
 
 ### Ajouté
